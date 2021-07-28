@@ -218,7 +218,7 @@ export default {
 
         const bill = this.type === 'income'
           ? Number(this.info.bill) - Number(price) +Number(this.price)
-          : this.info.bill - Number(price) - this.price
+          : this.info.bill + Number(price) - this.price
 
         await this.$store.dispatch('updateInfo', { bill }),
         this.title = ''
