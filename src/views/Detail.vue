@@ -234,28 +234,28 @@ export default {
         console.log(e);
       }
     },
-    async deletePayment() {
-      try {
-        const idx = this.$route.params.id
-        const price = this.payment.price
-        const type = this.payment.type
-        const paymentData = {
-          id: idx,
-          price: price,
-          type: type
-        }
-        await this.$store.dispatch('deletePayment', paymentData)
-
-        const bill = type === 'income'
-          ? Number(this.info.bill) + Number(price)
-          : this.info.bill - price
-
-        await this.$store.dispatch('updateInfo', { bill })
-        router.push('/')
-      } catch (e) {
-        console.log(e);
-      }
-    }
+    // async deletePayment() {
+    //   try {
+    //     const idx = this.$route.params.id
+    //     const price = this.payment.price
+    //     const type = this.payment.type
+    //     const paymentData = {
+    //       id: idx,
+    //       price: price,
+    //       type: type
+    //     }
+    //     await this.$store.dispatch('deletePayment', paymentData)
+    //
+    //     const bill = type === 'income'
+    //       ? Number(this.info.bill) + Number(price)
+    //       : this.info.bill - price
+    //
+    //     await this.$store.dispatch('updateInfo', { bill })
+    //     router.push('/')
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // }
   },
   computed: {
     ...mapGetters(['info']),
